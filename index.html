@@ -4,14 +4,125 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/ae5e1b21b5.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
 
     <title>Weather Dashboard</title>
   </head>
   <body>
-    <h1>Hello, world!</h1>
+    <div class="container-fluid" id="gradientHeaderContainer">
+        <div class="row">
+            <h1 id="title">Weather Dashboard</h1>
+        </div>
+    </div>
+        <div class="row">
+            <div class="col-2">
+                <form>
+                    <div class="mb-3">
+                        <label class="form-label"><h1 id="searchTitle">Search for a City:</h1></label>
+                        <input type="email" class="form-control" id="userLocationInput" placeholder="Detriot">
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-primary" type="button" id="searchbtn" onclick = getUserResponse() >Search</button>
+                    </div>
+                    <div class="d-grid gap-2 mt-4">
+                        <button class="btn btn-primary citybtn" type="button" id="austin" onclick= 'userResponse = "Austin"'>Austin</button>
+                    </div>
+                    <div class="d-grid gap-2 mt-3">
+                        <button class="btn btn-primary citybtn" type="button" id="chicago" onclick= 'userResponse = "Chicago"'>Chicago</button>
+                    </div>
+                    <div class="d-grid gap-2 mt-3">
+                        <button class="btn btn-primary citybtn" type="button" id="newYork" onclick= 'userResponse = `New+York`'>New York</button>
+                    </div>
+                    <div class="d-grid gap-2 mt-3">
+                        <button class="btn btn-primary citybtn" type="button" id="orlando" onclick= 'userResponse = "Orlando"'>Orlando</button>
+                    </div>
+                    <div class="d-grid gap-2 mt-3">
+                        <button class="btn btn-primary citybtn" type="button" id="sanFrancisco" onclick= 'userResponse = "San+Francisco"'>San Francisco</button>
+                    </div>
+                    <div class="d-grid gap-2 mt-3">
+                        <button class="btn btn-primary citybtn" type="button" id="seattle" onclick= 'userResponse = "Seattle"'>Seattle</button>
+                    </div>
+                    <div class="d-grid gap-2 mt-3">
+                        <button class="btn btn-primary citybtn" type="button" id="denver" onclick= 'userResponse = "Denver"'>Denver</button>
+                    </div>
+                    <div class="d-grid gap-2 mt-3">
+                        <button class="btn btn-primary citybtn" type="button" id="atlanta" onclick= 'userResponse = "Atlanta"'>Atlanta</button>
+                    </div>
+                </div>
+                    <div class="col-8 mt-3" id="citySearchedContainer">
+                        <div class="container" id="searchResultContainer">
+                            <span id="cityPicked"></span>
+                            <span id="currentday"></span>
+                            <div class="containerResult">Temp:</div>
+                            <div class="containerResult">Wind:</div>
+                            <div class="containerResult">Humidity:</div>
+                            <div class="containerResult" id="uvIndex">UV Index: </div>
+                        </div>
+                        <div class="container mt-3">
+                            <div class="row">
+                                <span id="five-day-title" >5-Day Forecast:</span>
+                            <div class="row">
+                                <div class="col-2" id="firstWeatherCard">
+                                    <div class="card" style="width: 14rem;">
+                                        <div class="card-body">
+                                          <h5 class="card-title">Card title</h5>
+                                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-2 weatherCard">
+                                    <div class="card" style="width: 14rem;">
+                                        <div class="card-body">
+                                          <h5 class="card-title">Card title</h5>
+                                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-2 weatherCard">
+                                    <div class="card" style="width: 14rem;">
+                                        <div class="card-body">
+                                          <h5 class="card-title">Card title</h5>
+                                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-2 weatherCard">
+                                    <div class="card" style="width: 14rem;">
+                                        <div class="card-body">
+                                          <h5 class="card-title">Card title</h5>
+                                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-2 weatherCard">
+                                    <div class="card" style="width: 14rem;">
+                                        <div class="card-body">
+                                          <h5 class="card-title">Card title</h5>
+                                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </form>
+        </div>
+        
+
+
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
