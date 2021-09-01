@@ -19,7 +19,7 @@
                 <form>
                     <div class="mb-3">
                         <label class="form-label"><h1 id="searchTitle">Search for a City:</h1></label>
-                        <input type="text" class="form-control" id="userLocationInput" placeholder="Detriot" value = 'userLocationInput'>
+                        <input type="text" class="form-control" id="userLocationInput" placeholder="Detriot">
                     </div>
                     <div class="d-grid gap-2">
                         <button class="btn btn-primary" type="click" id="searchbtn" onclick= getUserResponse()>Search</button>
@@ -31,13 +31,13 @@
                         <button class="btn btn-primary citybtn" type="button" id="chicago" onclick= 'userResponse = "Chicago"'>Chicago</button>
                     </div>
                     <div class="d-grid gap-2 mt-3">
-                        <button class="btn btn-primary citybtn" type="button" id="newYork" onclick= 'userResponse = `New+York`' value="New York">New York</button>
+                        <button class="btn btn-primary citybtn" type="button" id="newYork" onclick= 'userResponse = `New York`' value="New York">New York</button>
                     </div>
                     <div class="d-grid gap-2 mt-3">
                         <button class="btn btn-primary citybtn" type="button" id="orlando" onclick= 'userResponse = "Orlando"'>Orlando</button>
                     </div>
                     <div class="d-grid gap-2 mt-3">
-                        <button class="btn btn-primary citybtn" type="button" id="sanFrancisco" onclick= 'userResponse = "San+Francisco"'>San Francisco</button>
+                        <button class="btn btn-primary citybtn" type="button" id="sanFrancisco" onclick= 'userResponse = "San Francisco"'>San Francisco</button>
                     </div>
                     <div class="d-grid gap-2 mt-3">
                         <button class="btn btn-primary citybtn" type="button" id="seattle" onclick= 'userResponse = "Seattle"'>Seattle</button>
@@ -53,10 +53,10 @@
                         <div class="container" id="searchResultContainer">
                             <span id="cityPicked"></span>
                             <span id="currentday"></span>
-                            <div class="containerResult">Temp:</div>
-                            <div class="containerResult">Wind:</div>
-                            <div class="containerResult">Humidity:</div>
-                            <div class="containerResult" id="uvIndex">UV Index: </div>
+                            <div class="containerResult">Temp:<span id="currentTemp"></span></div>
+                            <div class="containerResult">Wind:<span id="currentWind"></span></div>
+                            <div class="containerResult">Humidity:<span id="currentHumidity"></span></div>
+                            <div class="containerResult" id="uvIndex">UV Index:<span id="currentUvIndex"></span> </div>
                         </div>
                         <div class="container mt-3">
                             <div class="row">
@@ -65,48 +65,59 @@
                                 <div class="col-2" id="firstWeatherCard">
                                     <div class="card" style="width: 14rem;">
                                         <div class="card-body">
-                                          <h5 class="card-title">Card title</h5>
-                                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                          <h5 class="card-title" id="card-title1"><span id="dateDay1"></span></h5>
+                                          <h6 class="card-subtitle mb-2 text-muted" id="weather-icon1"><img src="icons/uknown.png" /></h6>
+                                              <p>Temp:<span id="day1Temp"></span></p>
+                                              <p>Wind:<span id="day1Wind"></span></p>
+                                              <p>Humidity:<span id="day1Humidity"></span></p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-2 weatherCard">
                                     <div class="card" style="width: 14rem;">
                                         <div class="card-body">
-                                          <h5 class="card-title">Card title</h5>
-                                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                          <h5 class="card-title" id="card-title1"><span id="dateDay2"></span></h5>
+                                          <h6 class="card-subtitle mb-2 text-muted" id="card-picture">Card subtitle</h6>
+                                              <p>Temp:<span id="day2Temp"></span></p>
+                                              <p>Wind:<span id="day2Wind"></span></p>
+                                              <p>Humidity:<span id="day2Humidity"></span></p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-2 weatherCard">
                                     <div class="card" style="width: 14rem;">
                                         <div class="card-body">
-                                          <h5 class="card-title">Card title</h5>
-                                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                          <h5 class="card-title" id="card-title1"><span id="dateDay3"></span></h5>
+                                          <h6 class="card-subtitle mb-2 text-muted" id="card-picture">Card subtitle</h6>
+                                              <p>Temp:<span id="day3Temp"></span></p>
+                                              <p>Wind:<span id="day3Wind"></span></p>
+                                              <p>Humidity:<span id="day3Humidity"></span></p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-2 weatherCard">
                                     <div class="card" style="width: 14rem;">
                                         <div class="card-body">
-                                          <h5 class="card-title">Card title</h5>
-                                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                          <h5 class="card-title" id="card-title1"><span id="dateDay4"></span></h5>
+                                          <h6 class="card-subtitle mb-2 text-muted" id="card-picture">Card subtitle</h6>
+                                              <p>Temp:<span id="day4Temp"></span></p>
+                                              <p>Wind:<span id="day4Wind"></span></p>
+                                              <p>Humidity:<span id="day4Humidity"></span></p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-2 weatherCard">
                                     <div class="card" style="width: 14rem;">
                                         <div class="card-body">
-                                          <h5 class="card-title">Card title</h5>
-                                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                          <h5 class="card-title" id="card-title1"><span id="dateDay5"></span></h5>
+                                          <h6 class="card-subtitle mb-2 text-muted" id="card-picture">Card subtitle</h6>
+                                              <p>Temp:<span id="day5Temp"></span></p>
+                                              <p>Wind:<span id="day5Wind"></span></p>
+                                              <p>Humidity:<span id="day5Humidity"></span></p>
                                         </div>
                                     </div>
                                 </div>
+                                
                                 
                             </div>
                                 

@@ -49,10 +49,17 @@ function getUserResponse(){
         var url = "https://api.openweathermap.org/data/2.5/forecast?q=" + userPick + "&units=imperial&appid=18c94be380dd6c1b79b8d296cad1794d"
         fetch(url)
         .then(function (response) {
-            return response.json();
+            if (response.ok){
+
+                return response.json();
+            }
+            else {
+                alert('Please insert a valid City Name')
+            }
         })
         .then(function (data) {
             console.log(data)
+            updateHTMLPage(data)
         }
         )
         if(userLocationInput){
@@ -60,3 +67,34 @@ function getUserResponse(){
             userLocationInput = ""
         }
     }   
+function updateHTMLPage(data) {
+currentTemp = document.getElementById('currentTemp').innerText = data.list[0].main.temp
+currentWind = document.getElementById('currentWind').innerText = data.list[0].wind.speed + 'MPH'
+currentHumidity = document.getElementById('currentHumidity').innerText = data.list[0].main.humidity + '%'
+console.log(data.list[0].main.temp)
+// Card 1 Information 
+dateDay1 = document.getElementById('dateDay1').innerText = moment().add(1, 'days').format('L')
+day1Temp = document.getElementById('day1Temp').innerText = data.list[1].main.temp
+day1Wind = document.getElementById('day1Wind').innerText = data.list[1].wind.speed + 'MPH'
+day1Humidity = document.getElementById('day1Humidity').innerText = data.list[1].main.humidity + '%'
+//Card 2 Information
+dateDay2 = document.getElementById('dateDay2').innerText = moment().add(3, 'days').format('L')
+day2Temp = document.getElementById('day2Temp').innerText = data.list[2].main.temp
+day2Wind = document.getElementById('day2Wind').innerText = data.list[2].wind.speed + 'MPH'
+day2Humidity = document.getElementById('day2Humidity').innerText = data.list[2].main.humidity + '%'
+// Card 3 Information
+dateDay3 = document.getElementById('dateDay3').innerText = moment().add(3, 'days').format('L')
+day3Temp = document.getElementById('day3Temp').innerText = data.list[3].main.temp
+day3Wind = document.getElementById('day3Wind').innerText = data.list[3].wind.speed + 'MPH'
+day3Humidity = document.getElementById('day3Humidity').innerText = data.list[3].main.humidity + '%'
+//Card 4 Information
+dateDay4 = document.getElementById('dateDay4').innerText = moment().add(4, 'days').format('L')
+day4Temp = document.getElementById('day4Temp').innerText = data.list[4].main.temp
+day4Wind = document.getElementById('day4Wind').innerText = data.list[4].wind.speed + 'MPH'
+day4Humidity = document.getElementById('day4Humidity').innerText = data.list[4].main.humidity + '%'
+//Card 5 Information
+dateDay5 = document.getElementById('dateDay5').innerText = moment().add(5, 'days').format('L')
+day1Temp = document.getElementById('day5Temp').innerText = data.list[5].main.temp
+day1Wind = document.getElementById('day5Wind').innerText = data.list[5].wind.speed + 'MPH'
+day1Humidity = document.getElementById('day5Humidity').innerText = data.list[5].main.humidity + '%'
+}
