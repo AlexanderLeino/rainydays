@@ -39,25 +39,24 @@ function getUserResponse(){
         cityPicked.innerText = userResponse
         retrieveData(userResponse)
     }
+}
     
     
     
     function retrieveData (userPick){
         console.log(userPick)
         
-        var url = "https://api.openweathermap.org/data/2.5/forecast?q=' + userPick + '&units=imperial&appid=18c94be380dd6c1b79b8d296cad1794d"
+        var url = "https://api.openweathermap.org/data/2.5/forecast?q=" + userPick + "&units=imperial&appid=18c94be380dd6c1b79b8d296cad1794d"
         fetch(url)
         .then(function (response) {
             return response.json();
         })
         .then(function (data) {
             console.log(data)
-            retrieveData(data)
         }
         )
+        if(userLocationInput){
+            userLocationInput.value = ''
+            userLocationInput = ""
+        }
     }   
-    if(userLocationInput){
-        userLocationInput.value = ''
-    }
-    userLocationInput = ""
-}
