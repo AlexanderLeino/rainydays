@@ -19,10 +19,10 @@
                 <form>
                     <div class="mb-3">
                         <label class="form-label"><h1 id="searchTitle">Search for a City:</h1></label>
-                        <input type="text" class="form-control" id="userLocationInput" placeholder="Detriot">
+                        <input type="text" class="form-control" id="userLocationInput" placeholder="Detriot" value = 'userLocationInput'>
                     </div>
                     <div class="d-grid gap-2">
-                        <button class="btn btn-primary" type="submit" id="searchbtn">Search</button>
+                        <button class="btn btn-primary" type="click" id="searchbtn" onclick=getUserResponse()>Search</button>
                     </div>
                     <div class="d-grid gap-2 mt-4">
                         <button class="btn btn-primary citybtn" type="button" id="austin" onclick= 'userResponse = "Austin"'>Austin</button>
@@ -31,7 +31,7 @@
                         <button class="btn btn-primary citybtn" type="button" id="chicago" onclick= 'userResponse = "Chicago"'>Chicago</button>
                     </div>
                     <div class="d-grid gap-2 mt-3">
-                        <button class="btn btn-primary citybtn" type="button" id="newYork" onclick= 'userResponse = `New+York`'>New York</button>
+                        <button class="btn btn-primary citybtn" type="button" id="newYork" onclick= 'userResponse = `New+York`' value="New York">New York</button>
                     </div>
                     <div class="d-grid gap-2 mt-3">
                         <button class="btn btn-primary citybtn" type="button" id="orlando" onclick= 'userResponse = "Orlando"'>Orlando</button>
