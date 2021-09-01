@@ -11,8 +11,10 @@ var sanFrancisco = document.getElementById('sanFrancisco')
 var seattle = document.getElementById('seattle')
 var denver = document.getElementById('denver')
 var atlanta = document.getElementById('atlanta')
+var searchBtn = document.getElementById('searchbtn').addEventListener('submit',function getUserResponse(event){
+    event.preventDefault()
+})
 var userResponse
-
 austinTx.addEventListener('click', getUserResponse)
 chicagoIl.addEventListener('click', getUserResponse)
 newYork.addEventListener('click', getUserResponse)
@@ -23,8 +25,8 @@ denver.addEventListener('click', getUserResponse)
 atlanta.addEventListener('click', getUserResponse)
 var currentDay = moment().format("L")
 var url = "https://api.openweathermap.org/data/2.5/forecast?q=New+York&units=imperial&appid=18c94be380dd6c1b79b8d296cad1794d"
-console.log(userLocationInput)
 currentDate = document.getElementById('currentday').innerText= `(${currentDay})`
+
 
 fetch(url)
 .then(function (response) {
@@ -36,11 +38,9 @@ fetch(url)
 }
 )
 function getUserResponse(){
-    console.log('This function is being called')
     var userLocationInput = document.getElementById('userLocationInput').value
-    cityPicked.innerText = userResponse
     console.log(userLocationInput)
-
+    cityPicked.innerText=userLocationInput
     
    
     
