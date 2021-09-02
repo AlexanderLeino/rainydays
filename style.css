@@ -1,8 +1,11 @@
+*{
+    font-weight: bold;
+}
 h1 {
     text-align: center;
 }
 .main-heading-current {
-    font-size: 35px;
+    font-size: 25px;
     font-weight: bold;
 }
 #searchTitle {
@@ -47,6 +50,7 @@ h1 {
 .weatherCard {
     margin-left: 52px;
 }
+
 #five-day-title {
     font-size: 22px;
     font-weight: bold;
