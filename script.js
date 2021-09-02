@@ -11,6 +11,12 @@ var sanFrancisco = document.getElementById('sanFrancisco')
 var seattle = document.getElementById('seattle')
 var denver = document.getElementById('denver')
 var atlanta = document.getElementById('atlanta')
+var weatherIcon1 = document.getElementById('weather-icon1').appendChild(iconImage)
+var iconCode = data.weather[0].icon
+var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
+var iconImage = document.createElement('img')
+iconImage.setAttribute('src', iconUrl)
+
 var searchBtn = document.getElementById('searchbtn').addEventListener('click',function getUserResponse(event){
     event.preventDefault()
 })
