@@ -2,7 +2,6 @@
 // When the user clicks on either the search button or the preselected options it will run a function that will either retrieve the value in input box or it will use the data from one of the preselect options.
 // If the user entered their own city it will firstly check to see if it exists if it doesnt exist it will give an alert popup saying please entered a different city name. 
 // IF the city matches directory then it will run a function that will generate the html elements form 
-var cityPicked = document.getElementById('cityPicked')
 var austinTx = document.getElementById('austin')
 var chicagoIl = document.getElementById('chicago')
 var newYork = document.getElementById('newYork')
@@ -16,9 +15,10 @@ var weatherIcon2 = document.getElementById('weather-icon2')
 var weatherIcon3 = document.getElementById('weather-icon3')
 var weatherIcon4 = document.getElementById('weather-icon4')
 var weatherIcon5 = document.getElementById('weather-icon5')
+var count = 0
 
 
-
+alert('You can either search for a particular city or select from the preselected menu and choices weather will be displayed and or selected another city if you have already selected on earlier!!!')
 
 var searchBtn = document.getElementById('searchbtn').addEventListener('click',function getUserResponse(event){
     event.preventDefault()
@@ -32,11 +32,12 @@ sanFrancisco.addEventListener('click', getUserResponse)
 seattle.addEventListener('click', getUserResponse)
 denver.addEventListener('click', getUserResponse)
 atlanta.addEventListener('click', getUserResponse)
-var currentDay = moment().format("L")
-currentDate = document.getElementById('currentday').innerText= `(${currentDay})`
 
 
 function getUserResponse(){
+    var cityPicked = document.getElementById('cityPicked')
+    var currentDay = moment().format("L")
+    currentDate = document.getElementById('currentday').innerText= `(${currentDay})`
     var userLocationInput = document.getElementById('userLocationInput').value
     if (userLocationInput){
         cityPicked.innerText=userLocationInput
@@ -77,6 +78,7 @@ function retrieveData (userPick){
     }
 }   
 function updateHTMLPage(data) {
+    count++
     currentTemp = document.getElementById('currentTemp').innerText = data.list[0].main.temp
     currentWind = document.getElementById('currentWind').innerText = data.list[0].wind.speed + 'MPH'
     currentHumidity = document.getElementById('currentHumidity').innerText = data.list[0].main.humidity + '%'
@@ -110,11 +112,11 @@ function updateHTMLPage(data) {
    
     // Card 3 Information
 
-dateDay3 = document.getElementById('dateDay3').innerText = moment().add(3, 'days').format('L')
-day3Temp = document.getElementById('day3Temp').innerText = data.list[3].main.temp
-day3Wind = document.getElementById('day3Wind').innerText = data.list[3].wind.speed + 'MPH'
-day3Humidity = document.getElementById('day3Humidity').innerText = data.list[3].main.humidity + '%'
-var iconCode3 = data.list[2].weather[0].icon
+    dateDay3 = document.getElementById('dateDay3').innerText = moment().add(3, 'days').format('L')
+    day3Temp = document.getElementById('day3Temp').innerText = data.list[3].main.temp
+    day3Wind = document.getElementById('day3Wind').innerText = data.list[3].wind.speed + 'MPH'
+    day3Humidity = document.getElementById('day3Humidity').innerText = data.list[3].main.humidity + '%'
+    var iconCode3 = data.list[2].weather[0].icon
     var iconUrl = ("http://openweathermap.org/img/w/" + iconCode3 + ".png");
     var iconImage3 = document.createElement('img')
     iconImage3.setAttribute('src', iconUrl)
@@ -127,7 +129,7 @@ dateDay4 = document.getElementById('dateDay4').innerText = moment().add(4, 'days
 day4Temp = document.getElementById('day4Temp').innerText = data.list[4].main.temp
 day4Wind = document.getElementById('day4Wind').innerText = data.list[4].wind.speed + 'MPH'
 day4Humidity = document.getElementById('day4Humidity').innerText = data.list[4].main.humidity + '%'
-var iconCode4 = data.list[4].weather[0].icon
+    var iconCode4 = data.list[4].weather[0].icon
     var iconUrl = ("http://openweathermap.org/img/w/" + iconCode4 + ".png");
     var iconImage4 = document.createElement('img')
     iconImage4.setAttribute('src', iconUrl)
@@ -138,11 +140,16 @@ dateDay5 = document.getElementById('dateDay5').innerText = moment().add(5, 'days
 day1Temp = document.getElementById('day5Temp').innerText = data.list[5].main.temp
 day1Wind = document.getElementById('day5Wind').innerText = data.list[5].wind.speed + 'MPH'
 day1Humidity = document.getElementById('day5Humidity').innerText = data.list[5].main.humidity + '%'
-var iconCode5 = data.list[5].weather[0].icon
+    var iconCode5 = data.list[5].weather[0].icon
     var iconUrl = ("http://openweathermap.org/img/w/" + iconCode5 + ".png");
     var iconImage5 = document.createElement('img')
     iconImage5.setAttribute('src', iconUrl)
     iconImage5.setAttribute('alt','An icon representative of type of weather for this particular day.')
     weatherIcon5.appendChild(iconImage5)
+    removeElements()
 
 }
+function removeElements (){
+    if (count === 2) {
+        location.reload()
+    }}
